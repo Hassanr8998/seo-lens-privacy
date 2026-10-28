@@ -23,7 +23,7 @@ code{background:#f1ede3;padding:1px 4px;border-radius:3px}.muted{color:#6b665c}
 <ul>
 <li>SEO Lens reads a tab only after you open the SEO Lens side panel on it. While the panel is open, switching tabs runs the audit on the new tab.</li>
 <li>The audit runs locally in your browser on the page you are viewing. It reads headings, links, images, meta tags, structured data and social tags. Results stay in the panel. They leave your computer only when you choose to export a CSV or JSON file to your own device.</li>
-<li>Your light/dark theme choice is saved in <code>chrome.storage</code> on your computer. Nothing else is stored.</li>
+<li>Your light/dark theme choice and a local audit counter for the review prompt (<code>seoLensReview</code>) are saved in <code>chrome.storage</code> on your computer. Nothing else is stored, and nothing is sent anywhere.</li>
 </ul>
 
 <h2>Network requests</h2>
@@ -38,7 +38,7 @@ code{background:#f1ede3;padding:1px 4px;border-radius:3px}.muted{color:#6b665c}
 <tr><th>Permission</th><th>Why it is needed</th></tr>
 <tr><td><code>activeTab</code></td><td>Fallback access to the tab you click the toolbar icon on.</td></tr>
 <tr><td><code>scripting</code></td><td>Runs the audit code in the tab you opened the panel on so it can read the rendered page (headings, links, images, meta tags, schema).</td></tr>
-<tr><td><code>storage</code></td><td>Saves your light/dark theme on your computer.</td></tr>
+<tr><td><code>storage</code></td><td>Saves your light/dark theme and the review-prompt counter on your computer.</td></tr>
 <tr><td><code>sidePanel</code></td><td>Shows the audit in Chrome's side panel next to the page.</td></tr>
 <tr><td>Host access (<code>http://*/*</code>, <code>https://*/*</code>)</td><td>Lets SEO Lens read the page you open the side panel on (Chrome does not reliably grant <code>activeTab</code> to side panels). It also lets the network checks you start (broken links, file sizes, status, redirects, robots.txt, sitemap, indexability) request those URLs. The audit script runs only in the tab where you open the panel. No browsing data is collected or sent anywhere.</td></tr>
 <tr><td>Optional <code>webRequest</code></td><td>Records each redirect hop (status code and location) for the extension's own status check request. It does not monitor your browsing. If you decline it, the panel shows only the final URL.</td></tr>
